@@ -1,1 +1,3 @@
-"# Discord Go Forth" 
+# Discord Go Forth
+
+I am ready
