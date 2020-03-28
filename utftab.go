@@ -6,6 +6,15 @@ import (
 	"strconv"
 )
 
+// PrintUnicodeTable печатает таблицу.
+func PrintUnicodeTable(begin, end rune) {
+	for num := begin; num < end; num++ {
+		symbol := string(num)
+		dump := "BINARY DUMP"
+		fmt.Printf("%5X  %s  %s\n", num, dump, symbol)
+	}
+}
+
 func main() {
 	if len(os.Args) != 3 {
 		fmt.Print("Usage: utftab begin end")
@@ -25,6 +34,6 @@ func main() {
 			fmt.Print("Usage: begin < end")
 			os.Exit(1)
 		}
-		fmt.Printf("begin=%X end=%X\n", begin, end)
+		PrintUnicodeTable(rune(begin), rune(end))
 	}
 }
