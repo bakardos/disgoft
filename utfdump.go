@@ -1,9 +1,22 @@
 package disgoft
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"strings"
 )
+
+// PrintBinaryDump Што То Делает
+func PrintBinaryDump(filename string, f *os.File) {
+	fmt.Print("Reading from ", filename, "\n")
+	scanner := bufio.NewScanner(f)
+	for scanner.Scan() {
+		for _, c := range scanner.Text() {
+			fmt.Print(DumpRuneBinary(string(c)), "\n")
+		}
+	}
+}
 
 // DumpRuneBinary Даёт Dump
 func DumpRuneBinary(s string) string {
